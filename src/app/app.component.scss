@@ -45,11 +45,16 @@ mat-toolbar, mat-toolbar-row {
     height: 56px;
 }
 
+mat-toolbar-row {
+    gap: 16px;
+}
+
 .menu-icon {
     cursor: pointer;
 }
 
 .router-container {
+    // position: relative;  //damit der FAB an diesem Container ausgerichtet wird!
     padding-top: 16px;
     padding-left: 56px;
 }

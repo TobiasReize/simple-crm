@@ -1,0 +1,12 @@
+@mixin dFlex($fd:row, $jc:center, $ai:center) {
+    display: flex;
+    flex-direction: $fd;
+    justify-content: $jc;
+    align-items: $ai;
+  }
+
+  .add-user-btn {
+    position: absolute;
+    right: 56px;
+    bottom: 56px;
+  }
