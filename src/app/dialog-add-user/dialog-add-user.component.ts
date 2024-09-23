@@ -7,6 +7,7 @@ import { MatInputModule } from '@angular/material/input';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { provideNativeDateAdapter } from '@angular/material/core';
 import { User } from '../../models/user.class';
+import { FirebaseService } from '../firebase-service/firebase.service';
 
 @Component({
   selector: 'app-dialog-add-user',
@@ -22,9 +23,13 @@ export class DialogAddUserComponent {
   birthDate!: Date;
 
 
-  saveUser() {
+  constructor(private firebaseService: FirebaseService) { }
+
+
+  async saveUser() {
     this.user.birthDate = this.birthDate.getTime();
     console.log('Current user:', this.user);
+    this.firebaseService.addData(this.user.toJSON());
   }
 
 }
