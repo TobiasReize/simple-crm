@@ -33,6 +33,10 @@
         &:hover {
             background-color: rgba(0, 0, 0, 0.1);
         }
+
+        &:focus {
+            outline: none;
+        }
     }
 }
 
@@ -43,4 +47,9 @@ mat-toolbar, mat-toolbar-row {
 
 .menu-icon {
     cursor: pointer;
+}
+
+.router-container {
+    padding-top: 16px;
+    padding-left: 56px;
 }
