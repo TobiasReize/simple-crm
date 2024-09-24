@@ -6,16 +6,13 @@
                 <th>Email</th>
                 <th>City</th>
             </tr>
-            <tr>
-                <td>sdfsdf</td>
-                <td>sdfsasd</td>
-                <td>sdfsedrt</td>
-            </tr>
-            <tr>
-                <td>sdfsdf</td>
-                <td>sdfsasd</td>
-                <td>sdfsedrt</td>
-            </tr>
+            @for (singleUser of allUsers; track singleUser) {
+                <tr>
+                    <td>{{singleUser['firstName']}} {{singleUser['lastName']}}</td>
+                    <td>{{singleUser['email']}}</td>
+                    <td>{{singleUser['city']}}</td>
+                </tr>
+            }
         </table>
     </mat-card-content>
 </mat-card>

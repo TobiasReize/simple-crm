@@ -21,10 +21,9 @@ export class FirebaseService {
       (err) => {console.error(err);}
     ).then(
       (result) => {
-        console.log('Adding user finished', result);
+        // console.log('Adding user finished', result);
         this.loading = false;
       }
     );
   }
-
 }
