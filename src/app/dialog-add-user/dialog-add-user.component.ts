@@ -1,7 +1,7 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { MatButtonModule } from '@angular/material/button';
-import { MatDialogActions, MatDialogContent, MatDialogTitle } from '@angular/material/dialog';
+import { MatDialogActions, MatDialogContent, MatDialogRef, MatDialogTitle } from '@angular/material/dialog';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatDatepickerModule } from '@angular/material/datepicker';
@@ -23,6 +23,8 @@ export class DialogAddUserComponent {
 
   user = new User();
   birthDate!: Date;
+  readonly dialogRef = inject(MatDialogRef<DialogAddUserComponent>);
+
 
   constructor(public firebaseService: FirebaseService) { }
 
@@ -31,7 +33,13 @@ export class DialogAddUserComponent {
     this.firebaseService.loading = true;
     this.user.birthDate = this.birthDate.getTime();
     console.log('Current user:', this.user);
-    this.firebaseService.addData(this.user.toJSON());
+    await this.firebaseService.addData(this.user.toJSON());
+    this.cancel();
+  }
+
+
+  cancel() {
+    this.dialogRef.close();
   }
 
 }

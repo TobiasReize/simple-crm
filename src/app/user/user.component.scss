@@ -3,10 +3,63 @@
     flex-direction: $fd;
     justify-content: $jc;
     align-items: $ai;
+}
+
+mat-card {
+  background-color: white;
+
+  mat-card-content {
+    padding-left: 0;
+    padding-right: 0;
+  }
+}
+
+.user-table {
+  width: 100%;
+  border-collapse: collapse;
+  color: black;
+
+  th {
+    color: rgba(0, 0, 0, 0.4);
+    font-size: 16px;
+    font-weight: 600;
+    text-align: start;
   }
 
-  .add-user-btn {
-    position: absolute;
-    right: 56px;
-    bottom: 56px;
+  tr {
+    border-bottom: 1px solid rgba(0, 0, 0, 0.4);
+    cursor: pointer;
+
+    &:hover {
+      background-color: rgba(0, 0, 0, 0.04);
+    }
+
+    &:last-child {
+      border-bottom: 0;
+    }
+
+    &:first-child {
+      cursor: unset;
+
+      &:hover {
+        background-color: unset;
+      }
+    }
   }
+
+  td {
+    height: 48px;
+  }
+
+  td, th {
+    &:first-child {
+      padding-left: 16px;
+    }
+  }
+}
+
+.add-user-btn {
+  position: absolute;
+  right: 56px;
+  bottom: 56px;
+}

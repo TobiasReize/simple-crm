@@ -53,6 +53,6 @@
 </mat-dialog-content>
 
 <mat-dialog-actions>
-  <button [disabled]="firebaseService.loading" mat-button>Cancel</button>
+  <button (click)="cancel()" [disabled]="firebaseService.loading" mat-button>Cancel</button>
   <button (click)="saveUser()" [disabled]="firebaseService.loading" mat-button cdkFocusInitial>Save</button>
 </mat-dialog-actions>
