@@ -1,16 +1,20 @@
+@if (firebaseService.loading) {
+  <mat-progress-bar mode="indeterminate"></mat-progress-bar>
+}
+
 <h2 mat-dialog-title>Add User</h2>
 
 <mat-dialog-content class="mat-dialog-content">
   <div>
     <mat-form-field class="mr-16" appearance="outline">
       <mat-label>First name</mat-label>
-      <input [(ngModel)]="user.firstName" matInput placeholder="">
+      <input [disabled]="firebaseService.loading" [(ngModel)]="user.firstName" matInput placeholder="">
       <!-- <mat-hint>Please enter a name</mat-hint> -->
     </mat-form-field>
     
     <mat-form-field appearance="outline">
       <mat-label>Last name</mat-label>
-      <input [(ngModel)]="user.lastName" matInput placeholder="">
+      <input [disabled]="firebaseService.loading" [(ngModel)]="user.lastName" matInput placeholder="">
       <!-- <mat-hint>Please enter a name</mat-hint> -->
     </mat-form-field>
   </div>
@@ -18,7 +22,7 @@
   <div>
     <mat-form-field appearance="outline" class="full-width">
       <mat-label>Birth date</mat-label>
-      <input [(ngModel)]="birthDate" matInput [matDatepicker]="datepicker" placeholder=""/>
+      <input [disabled]="firebaseService.loading" [(ngModel)]="birthDate" matInput [matDatepicker]="datepicker" placeholder=""/>
       <!-- <mat-hint>Please enter a date</mat-hint> -->
       <mat-datepicker-toggle matIconSuffix [for]="datepicker"></mat-datepicker-toggle>
       <mat-datepicker #datepicker></mat-datepicker>
@@ -28,7 +32,7 @@
   <div>
     <mat-form-field appearance="outline" class="full-width">
       <mat-label>Street + house no.</mat-label>
-      <input [(ngModel)]="user.street" matInput placeholder="">
+      <input [disabled]="firebaseService.loading" [(ngModel)]="user.street" matInput placeholder="">
       <!-- <mat-hint>Please enter a date</mat-hint> -->
     </mat-form-field>
   </div>
@@ -36,19 +40,19 @@
   <div>
     <mat-form-field appearance="outline" class="mr-16">
       <mat-label>Zip code</mat-label>
-      <input [(ngModel)]="user.zipCode" matInput placeholder="">
+      <input [disabled]="firebaseService.loading" [(ngModel)]="user.zipCode" matInput placeholder="">
       <!-- <mat-hint>Please enter a date</mat-hint> -->
     </mat-form-field>
 
     <mat-form-field appearance="outline">
       <mat-label>City</mat-label>
-      <input [(ngModel)]="user.city" matInput placeholder="">
+      <input [disabled]="firebaseService.loading" [(ngModel)]="user.city" matInput placeholder="">
       <!-- <mat-hint>Please enter a date</mat-hint> -->
     </mat-form-field>
   </div>
 </mat-dialog-content>
 
 <mat-dialog-actions>
-  <button mat-button>Cancel</button>
-  <button (click)="saveUser()" mat-button cdkFocusInitial>Save</button>
+  <button [disabled]="firebaseService.loading" mat-button>Cancel</button>
+  <button (click)="saveUser()" [disabled]="firebaseService.loading" mat-button cdkFocusInitial>Save</button>
 </mat-dialog-actions>

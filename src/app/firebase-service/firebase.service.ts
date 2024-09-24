@@ -7,6 +7,7 @@ import { addDoc, collection, Firestore } from '@angular/fire/firestore';
 export class FirebaseService {
 
   firestore: Firestore = inject(Firestore);
+  loading = false;
 
 
   getUsersColRef() {
@@ -19,7 +20,10 @@ export class FirebaseService {
     .catch(
       (err) => {console.error(err);}
     ).then(
-      (result) => {console.log('Adding user finished', result);}
+      (result) => {
+        console.log('Adding user finished', result);
+        this.loading = false;
+      }
     );
   }
 
