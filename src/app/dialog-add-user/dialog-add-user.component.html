@@ -50,6 +50,14 @@
       <!-- <mat-hint>Please enter a date</mat-hint> -->
     </mat-form-field>
   </div>
+
+  <div>
+    <mat-form-field appearance="outline" class="full-width">
+      <mat-label>Email</mat-label>
+      <input [disabled]="firebaseService.loading" [(ngModel)]="user.email" matInput placeholder="">
+      <!-- <mat-hint>Please enter a date</mat-hint> -->
+    </mat-form-field>
+  </div>
 </mat-dialog-content>
 
 <mat-dialog-actions>
