@@ -22,8 +22,8 @@
   <div>
     <mat-form-field appearance="outline" class="full-width">
       <mat-label>Birth date</mat-label>
-      <input [disabled]="firebaseService.loading" [(ngModel)]="birthDate" matInput [matDatepicker]="datepicker" placeholder=""/>
-      <!-- <mat-hint>Please enter a date</mat-hint> -->
+      <input [disabled]="firebaseService.loading" [(ngModel)]="birthDate" matInput [matDatepicker]="datepicker" placeholder="MM/DD/YYYY"/>
+      <!-- <mat-hint>MM/DD/YYYY</mat-hint> -->
       <mat-datepicker-toggle matIconSuffix [for]="datepicker"></mat-datepicker-toggle>
       <mat-datepicker #datepicker></mat-datepicker>
     </mat-form-field>

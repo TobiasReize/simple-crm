@@ -1,3 +1,4 @@
+<!-- User-Header-Card: -->
 <mat-card appearance="raised">
     <button class="address-more-btn" [matMenuTriggerFor]="userMenu" mat-icon-button>
         <mat-icon>more_vert</mat-icon>
@@ -15,12 +16,13 @@
     </mat-card-content>
 </mat-card>
 
+<!-- User-Details-Card: -->
 <mat-card class="user-address-card mt-32" appearance="raised">
     <button class="address-more-btn" [matMenuTriggerFor]="addressMenu" mat-icon-button>
         <mat-icon>more_vert</mat-icon>
     </button>
     <mat-menu #addressMenu="matMenu">
-        <button (click)="editAddress()" mat-menu-item>Edit</button>
+        <button (click)="editUserAddress()" mat-menu-item>Edit</button>
     </mat-menu>
 
     <mat-card-header>

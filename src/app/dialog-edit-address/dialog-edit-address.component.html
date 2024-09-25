@@ -1,1 +1,34 @@
-<p>dialog-edit-address works!</p>
+@if (firebaseService.loading) {
+    <mat-progress-bar mode="indeterminate"></mat-progress-bar>
+}
+  
+<h2 mat-dialog-title>Edit address</h2>
+
+<mat-dialog-content class="mat-dialog-content">
+<div>
+    <mat-form-field appearance="outline" class="full-width">
+    <mat-label>Street + house no.</mat-label>
+    <input [disabled]="firebaseService.loading" [(ngModel)]="user.street" matInput placeholder="">
+    <!-- <mat-hint>Please enter a date</mat-hint> -->
+    </mat-form-field>
+</div>
+
+<div>
+    <mat-form-field appearance="outline" class="mr-16">
+    <mat-label>Zip code</mat-label>
+    <input [disabled]="firebaseService.loading" [(ngModel)]="user.zipCode" matInput placeholder="">
+    <!-- <mat-hint>Please enter a date</mat-hint> -->
+    </mat-form-field>
+
+    <mat-form-field appearance="outline">
+    <mat-label>City</mat-label>
+    <input [disabled]="firebaseService.loading" [(ngModel)]="user.city" matInput placeholder="">
+    <!-- <mat-hint>Please enter a date</mat-hint> -->
+    </mat-form-field>
+</div>
+</mat-dialog-content>
+
+<mat-dialog-actions>
+    <button (click)="cancel()" [disabled]="firebaseService.loading" mat-button>Cancel</button>
+    <button (click)="saveAddress()" [disabled]="firebaseService.loading" mat-button cdkFocusInitial>Save</button>
+</mat-dialog-actions>

@@ -30,9 +30,8 @@ export class DialogAddUserComponent {
 
 
   async saveUser() {
-    this.firebaseService.loading = true;
+    this.firebaseService.loading = true;    
     this.user.birthDate = this.birthDate.getTime();
-    // console.log('Current user:', this.user);
     await this.firebaseService.addData(this.user.toJSON());
     this.cancel();
   }
