@@ -29,3 +29,18 @@
         margin-bottom: 0;
     }
 }
+
+.user-address-card {
+    @include dFlex($fd: column, $ai: flex-start);
+    gap: 8px;
+}
+
+.address-more-btn {
+    position: absolute;
+    right: 0;
+    top: 0;
+}
+
+.user-details-address {
+    @include dFlex($fd: column, $ai: flex-start);
+}

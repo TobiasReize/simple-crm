@@ -1,5 +1,5 @@
 import { inject, Injectable } from '@angular/core';
-import { addDoc, collection, Firestore } from '@angular/fire/firestore';
+import { addDoc, collection, doc, Firestore } from '@angular/fire/firestore';
 
 @Injectable({
   providedIn: 'root'
@@ -12,6 +12,11 @@ export class FirebaseService {
 
   getUsersColRef() {
     return collection(this.firestore, 'users');
+  }
+
+
+  getSingleDocRef(colId:string, docId:string) {
+    return doc(collection(this.firestore, colId), docId);
   }
 
 
