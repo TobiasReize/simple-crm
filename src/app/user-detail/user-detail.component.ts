@@ -56,7 +56,6 @@ export class UserDetailComponent implements OnInit, OnDestroy {
     const dialogRefUser = this.dialog.open(DialogEditUserComponent);
     dialogRefUser.componentInstance.user = new User(this.user.toJSON());    //es wird eine neue Instanz des Users mit den Daten des aktuellen Users erstellt! (somit wird dem Dialog eine Kopie des Users übergeben!)
     dialogRefUser.componentInstance.userId = this.userId;
-    // dialogRefUser.componentInstance.birthDate = this.user.birthDate;
   }
 
 

@@ -18,7 +18,7 @@ import { User } from '../../models/user.class';
 export class DialogEditAddressComponent {
 
   readonly dialogRef = inject(MatDialogRef<DialogEditAddressComponent>);
-  user!: User;
+  user: User = new User;
   userId = '';
 
   constructor(public firebaseService: FirebaseService) { }

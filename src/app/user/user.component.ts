@@ -33,7 +33,7 @@ export class UserComponent implements OnInit, OnDestroy {
       usersCollection.forEach(user => {
         this.allUsers.push(this.setUserObject(user.data(), user.id));
       });
-      console.log('All users (inkl. id):', this.allUsers);
+      // console.log('All users (inkl. id):', this.allUsers);
     });
   }
 

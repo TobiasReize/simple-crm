@@ -21,7 +21,7 @@ import { provideNativeDateAdapter } from '@angular/material/core';
 export class DialogEditUserComponent implements OnInit {
   
   readonly dialogRef = inject(MatDialogRef<DialogEditUserComponent>);
-  user!: User;
+  user: User = new User;
   userId = '';
   birthDate!: Date;
 
