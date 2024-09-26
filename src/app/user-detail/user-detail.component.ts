@@ -60,6 +60,8 @@ export class UserDetailComponent implements OnInit, OnDestroy {
 
 
   ngOnDestroy(): void {
-    this.unsubUser();
+    if (this.unsubUser) {
+      this.unsubUser();
+    }
   }
 }
