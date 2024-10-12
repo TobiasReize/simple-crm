@@ -1,6 +1,6 @@
 import { CommonModule } from '@angular/common';
 import { Component, inject } from '@angular/core';
-import { Auth, authState, createUserWithEmailAndPassword, getAuth, idToken, signInWithEmailAndPassword, signOut, User, user } from '@angular/fire/auth';
+import { Auth, authState, createUserWithEmailAndPassword, getAuth, idToken, sendPasswordResetEmail, signInWithEmailAndPassword, signOut, User, user } from '@angular/fire/auth';
 import { FormsModule, NgForm } from '@angular/forms';
 import { Router } from '@angular/router';
 import { Subscription } from 'rxjs';
@@ -42,12 +42,12 @@ export class LoginComponent {
 
     this.authStateSubscription = this.authState$.subscribe((aUser: User | null) => {
       //handle auth state changes here. Note, that user will be null if there is no currently logged in user.
-      console.log('AuthState Subscription:', aUser);
+      // console.log('AuthState Subscription:', aUser);
     });
 
     this.idTokenSubscription = this.idToken$.subscribe((token: string | null) => {
       //handle idToken changes here. Note, that user will be null if there is no currently logged in user.
-      console.log('idToken Subscription:', token);
+      // console.log('idToken Subscription:', token);
     });
   }
 
@@ -66,7 +66,7 @@ export class LoginComponent {
       // this.router.navigateByUrl('/dashboard');
       // this.registerUser();
       // this.signOutUser();
-      // this.signInUser();
+      this.signInUser();
 
       // this.currentUser?.delete();
       ngForm.resetForm();
@@ -117,6 +117,26 @@ export class LoginComponent {
       // An error happened.
       console.log('Error:', error);
     });
+  }
+
+
+  resetPassword() {
+    const auth = getAuth();
+    sendPasswordResetEmail(auth, this.loginData.email)
+      .then(() => {
+        // Password reset email sent!
+      })
+      .catch((error) => {
+        const errorCode = error.code;
+        const errorMessage = error.message;
+        console.log('Error-Code:', errorCode);
+        console.log('Error-Message:', errorMessage);
+      });
+  }
+
+
+  confirmPasswordReset(auth: Auth, oobCode: string, newPassword: string) {
+    //
   }
 
 
